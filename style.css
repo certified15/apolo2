@@ -1,0 +1,123 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #333;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* Main content container */
+.container {
+  max-width: 90%;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+
+/* Text styles */
+h1 {
+  text-align: center;
+  color: #e63946;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.song {
+  margin-top: 25px;
+  text-align: center;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+/* 💕 Floating Hearts */
+.heart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  animation: fadeFloat 5s ease-in-out forwards;
+  opacity: 0;
+  pointer-events: none;
+  font-size: 20px;
+}
+
+@keyframes fadeFloat {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(0);
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2) translateY(-50px);
+  }
+}
+
+/* 💓 Visualizer + Image Setup */
+.visualizer-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 30px 0;  /* nicer vertical spacing */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Canvas for glow */
+#visualizer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+/* The image itself */
+#centerImage {
+  position: relative;
+  width: 360px;      /* slightly larger for more height */
+  height: auto;      /* keeps aspect ratio */
+  border-radius: 20px;
+  z-index: 2;
+  object-fit: cover;
+  box-shadow: 0 0 40px rgba(155, 93, 229, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+}
